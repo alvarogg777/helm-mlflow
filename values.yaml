@@ -6,8 +6,8 @@ image:
   pullPolicy: IfNotPresent
   imagePullSecrets: []
 
-backend_store_uri: "postgresql://admin:password@postgresql.ml-system.svc.cluster.local:5432"
-default_artifact_root: "s3://datalake/mlflow/artifacts"
+backend_store_uri: "psycopg2+postgresql://mlflow:mlflow@postgresql.storage-system.svc.cluster.local:5432"
+# default_artifact_root: "s3://datalake/mlflow/artifacts"
 
 minio:
   url: minio.default.svc.cluster.local:9000
