@@ -7,7 +7,7 @@ image:
   imagePullSecrets: []
 
 backend_store_uri: "psycopg2+postgresql://mlflow:mlflow@postgresql.storage-system.svc.cluster.local:5432"
-# default_artifact_root: "s3://datalake/mlflow/artifacts"
+default_artifact_root: "s3://mlflow"
 
 minio:
   url: minio.default.svc.cluster.local:9000
