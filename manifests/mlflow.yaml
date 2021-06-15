@@ -53,7 +53,7 @@ spec:
               containerPort: 80
               protocol: TCP
           args:
-            - "--backend-store-uri $BACKEND_STORE_URI"
+            - "--backend-store-uri $(BACKEND_STORE_URI)"
           env:
           - name: BACKEND_STORE_URI
             valueFrom:
