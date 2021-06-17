@@ -52,7 +52,8 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
-          #args:
+          args:
+            - "--default-artifact-root $(ARTIFACT_ROOT_ENV_VAR)"
           #  - "--backend-store-uri $(BACKEND_STORE_URI)"
           env:
           - name: BACKEND_STORE_URI_ENV_VAR
