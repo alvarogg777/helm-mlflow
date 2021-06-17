@@ -52,16 +52,16 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
-          args:
-            - "--backend-store-uri $(BACKEND_STORE_URI)"
+          #args:
+          #  - "--backend-store-uri $(BACKEND_STORE_URI)"
           env:
-          - name: BACKEND_STORE_URI
+          - name: BACKEND_STORE_URI_ENV_VAR
             valueFrom:
               secretKeyRef:
                 name: storage-secrets
                 key: backend_store_uri
-          - name: DEFAULT_ARTIFACT_ROOT
-            value: s3://mlflow/artifacts
+          - name: ARTIFACT_ROOT_ENV_VAR
+            value: s3://mlflow/testbucket
           - name: MLFLOW_S3_ENDPOINT_URL
             valueFrom:
               secretKeyRef:
