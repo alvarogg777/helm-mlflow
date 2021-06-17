@@ -12,7 +12,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 5000
+    - port: 80 # 5000
       targetPort: http
       protocol: TCP
       name: http
@@ -50,24 +50,24 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
-              containerPort: 5000
+              containerPort: 80 # 5000
               protocol: TCP
           #args:
-          #  - "--default-artifact-root $(ARTIFACT_ROOT_ENV_VAR)"
-          #  - "--backend-store-uri $(BACKEND_STORE_URI)"
+          #   - "--db-url=$(BACKEND_STORE_URI)"
+          #   - "--repo-base-url=$(ARTIFACT_ROOT) --s3-endpoint-url=$(S3_ENDPOINT_URL)"
           env:
-          - name: BACKEND_STORE_URI_ENV_VAR
+          - name: BACKEND_STORE_URI
             valueFrom:
               secretKeyRef:
                 name: storage-secrets
-                key: backend_store_uri
-          #- name: ARTIFACT_ROOT_ENV_VAR
-          #  value: s3://mlflow/testbucket
+                key: MLFLOW_DB_URI
+          - name: DEFAULT_ARTIFACT_ROOT
+            value: s3://mlflow/artifacts
           - name: MLFLOW_S3_ENDPOINT_URL
             valueFrom:
               secretKeyRef:
                 name: storage-secrets
-                key: MINIO_ENDPOINT
+                key: S3_ENDPOINT_URL
           - name: AWS_ACCESS_KEY_ID
             valueFrom:
               secretKeyRef:
