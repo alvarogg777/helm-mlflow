@@ -61,8 +61,8 @@ spec:
               secretKeyRef:
                 name: storage-secrets
                 key: backend_store_uri
-          - name: ARTIFACT_ROOT_ENV_VAR
-            value: s3://mlflow/testbucket
+          #- name: ARTIFACT_ROOT_ENV_VAR
+          #  value: s3://mlflow/testbucket
           - name: MLFLOW_S3_ENDPOINT_URL
             valueFrom:
               secretKeyRef:
