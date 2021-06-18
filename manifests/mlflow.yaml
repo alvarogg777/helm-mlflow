@@ -64,6 +64,7 @@ spec:
           command:
             - "/usr/local/bin/mlflow"
           args:
+            - "server"
             - "--backend-store-uri=$(BACKEND_STORE_URI)"
             - "--default-artifact-root=$(DEFAULT_ARTIFACT_ROOT)"
           env:
@@ -89,14 +90,14 @@ spec:
               secretKeyRef:
                 name: storage-secrets
                 key: MINIO_SECRET_KEY
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+          #livenessProbe:
+          #  httpGet:
+          #    path: /health
+          #    port: http
+          #readinessProbe:
+          #  httpGet:
+          #    path: /health
+          #    port: http
           resources:
             {}
           # volumeMounts:
