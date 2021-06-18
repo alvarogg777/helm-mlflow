@@ -42,6 +42,15 @@ spec:
         app.kubernetes.io/name: mlflow
         app.kubernetes.io/instance: mlflow
     spec: 
+      affinity:
+        nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+                - matchExpressions:
+                  - key: "kubernetes.io/hostname"
+                    operator: NotIn
+                    values:
+                      - kmaster
       imagePullSecrets:
         - name: regcred
       containers:
