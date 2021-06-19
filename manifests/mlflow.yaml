@@ -65,14 +65,26 @@ spec:
             - "/usr/local/bin/mlflow"
           args:
             - "server"
-            - "--backend-store-uri=$(BACKEND_STORE_URI)"
+            - "--backend-store-uri=postgresql://$(PGUSER):$(PGPASSWORD)@$(PGHOST):5432/mlflow"
             - "--default-artifact-root=$(DEFAULT_ARTIFACT_ROOT)"
           env:
-          - name: BACKEND_STORE_URI
-            valueFrom:
-              secretKeyRef:
-                name: storage-secrets
-                key: MLFLOW_DB_URI
+          - name: PGPASSWORD             
+            valueFrom:        
+                secretKeyRef:  
+                  key: POSTGRES_PASSWORD  
+                  name: storage-secrets   
+          - name: PGUSER                 
+            valueFrom:    
+                secretKeyRef:  
+                  key: POSTGRES_USER  
+                  name: storage-secrets  
+          - name: PGHOST                 
+            valueFrom:    
+                secretKeyRef:  
+                  key: POSTGRES_HOST  
+                  name: storage-secrets  
+          - name: PGDATABASE             
+            value: bentoml  
           - name: DEFAULT_ARTIFACT_ROOT
             value: s3://mlflow/artifacts
           - name: MLFLOW_S3_ENDPOINT_URL
