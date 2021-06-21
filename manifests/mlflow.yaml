@@ -62,7 +62,7 @@ spec:
               containerPort: 5000
               protocol: TCP
           command:
-            - "/usr/local/bin/mlflow"
+            - "mlflow"
           args:
             - "server"
             - "--backend-store-uri=postgresql://$(PGUSER):$(PGPASSWORD)@$(PGHOST):5432/mlflow"
