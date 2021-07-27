@@ -75,19 +75,19 @@ spec:
               value: "true"
             - name: PGPASSWORD             
               valueFrom:        
-                  secretKeyRef:  
-                    key: POSTGRES_PASSWORD  
-                    name: storage-secrets   
+                secretKeyRef:  
+                  key: POSTGRES_PASSWORD  
+                  name: storage-secrets   
             - name: PGUSER                 
               valueFrom:    
-                  secretKeyRef:  
-                    key: POSTGRES_USER  
-                    name: storage-secrets  
+                secretKeyRef:  
+                  key: POSTGRES_USER  
+                  name: storage-secrets  
             - name: PGHOST                 
               valueFrom:    
-                  secretKeyRef:  
-                    key: POSTGRES_HOST  
-                    name: storage-secrets  
+                secretKeyRef:  
+                  key: POSTGRES_HOST  
+                  name: storage-secrets  
             - name: PGDATABASE             
               value: bentoml  
             - name: DEFAULT_ARTIFACT_ROOT
