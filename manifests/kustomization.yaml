@@ -1,2 +1,2 @@
 resources:
-- mlflow.yaml
+  - mlflow.yaml

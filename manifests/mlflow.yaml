@@ -151,5 +151,5 @@ spec:
               service:
                 name: mlflow
                 port:
-                  number: 80
+                  number: 5000
 
