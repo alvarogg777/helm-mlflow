@@ -6,7 +6,7 @@ metadata:
   name: mlflow
   labels:
     app.kubernetes.io/name: mlflow
-    helm.sh/chart: mlflow-1.4.0
+    helm.sh/chart: mlflow-1.19.0
     app.kubernetes.io/instance: mlflow
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -27,7 +27,7 @@ metadata:
   name: mlflow
   labels:
     app.kubernetes.io/name: mlflow
-    helm.sh/chart: mlflow-1.4.0
+    helm.sh/chart: mlflow-1.19.0
     app.kubernetes.io/instance: mlflow
     app.kubernetes.io/managed-by: Helm
 spec:
